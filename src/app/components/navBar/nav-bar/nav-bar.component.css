@@ -1,0 +1,10 @@
+h2 {
+    padding-right: 150px;
+    font-family: FontX;
+    padding-top: 20px;
+    background: linear-gradient(to right, #ff7e5f, #feb47b, #8e2de2, #4a00e0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}

@@ -1,0 +1,25 @@
+<section class="mt-25 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-26">
+    @if (meals) { @for (item of meals | search:name ; track $index ) {
+    <div class="relative w-[100%] bg-white rounded-4xl shadow-lg mx-auto hover:transform hover:transition-all hover:duration-1500 group">
+        <!-- Image Container -->
+        <div class="relative  w-50 overflow-hidden  rounded-full mx-auto absolute shadow-2xl bottom-15">
+            <img [src]="item.strMealThumb" alt="Card Image" class=" object-cover  transform transition-transform duration-1500 group-hover:rotate-360" />
+        </div>
+
+        <!-- Content Container -->
+        <div class="p-2 text-center -mt-5 mb-3">
+            <h2 class="text-xl font-bold mb-2">{{item.strMeal}}</h2>
+            <h3 class="text-lg font-medium mb-2 text-green-400">
+                <i class="fa-solid fa-earth-americas me-2"></i> {{item.strArea}}
+            </h3>
+            <button [routerLink]="['/desc', item.idMeal]" routerLinkActive="router-link-active" class="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 hover:scale-110 transition-colors cursor-pointer">
+                View Recipe
+            </button>
+        </div>
+    </div>
+    } } @else {
+    <div class="fixed bottom-1/2 right-1/2 translate-0.5">
+        <i class="fa-solid fa-circle-notch fa-spin text-5xl "></i>
+    </div>
+    }
+</section>

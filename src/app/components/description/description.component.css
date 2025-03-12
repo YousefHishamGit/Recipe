@@ -1,0 +1,8 @@
+.fontX {
+    font-family: Fontx;
+    background: linear-gradient(to right, #ff7e5f, #feb47b, #ff0000);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
