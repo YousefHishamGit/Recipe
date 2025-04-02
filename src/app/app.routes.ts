@@ -14,9 +14,17 @@ export const routes: Routes = [
         component:NavBarComponent,
     },
     {
-        path:'desc/:id',
-        title:'Description',
-        component:DescriptionComponent,
+        path: 'desc/:id',
+        title: 'Description',
+        component: DescriptionComponent,
+        
+        
+    },
+    {
+        path:"**",
+        component:NavBarComponent,
+        
     }
 
 ];
+

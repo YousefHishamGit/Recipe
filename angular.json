@@ -16,6 +16,7 @@
                         "outputPath": "dist/recipe",
                         "index": "src/index.html",
                         "browser": "src/main.ts",
+                        "baseHref": "/",
                         "polyfills": [
                             "zone.js"
                         ],
@@ -28,19 +29,14 @@
                             "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
                             "src/styles.css"
                         ],
-                        "scripts": [],
-                        "server": "src/main.server.ts",
-                        "outputMode": "server",
-                        "ssr": {
-                            "entry": "src/server.ts"
-                        }
+                        "scripts": []
                     },
                     "configurations": {
                         "production": {
                             "budgets": [{
                                     "type": "initial",
-                                    "maximumWarning": "500kB",
-                                    "maximumError": "1MB"
+                                    "maximumWarning": "4kB",
+                                    "maximumError": "4mb"
                                 },
                                 {
                                     "type": "anyComponentStyle",
@@ -58,17 +54,20 @@
                     },
                     "defaultConfiguration": "production"
                 },
-                "serve": {
-                    "builder": "@angular-devkit/build-angular:dev-server",
-                    "configurations": {
-                        "production": {
-                            "buildTarget": "recipe:build:production"
-                        },
-                        "development": {
-                            "buildTarget": "recipe:build:development"
-                        }
-                    },
-                    "defaultConfiguration": "development"
+                "server": {
+                    "builder": "@angular-devkit/build-angular:server",
+                    "options": {
+                        "outputPath": "dist/recipe/server",
+                        "main": "server.ts",
+                        "tsConfig": "tsconfig.server.json"
+                    }
+                },
+                "serve-ssr": {
+                    "builder": "@nguniversal/builders:ssr-dev-server",
+                    "options": {
+                        "browserTarget": "recipe:build",
+                        "serverTarget": "recipe:server"
+                    }
                 },
                 "extract-i18n": {
                     "builder": "@angular-devkit/build-angular:extract-i18n"
